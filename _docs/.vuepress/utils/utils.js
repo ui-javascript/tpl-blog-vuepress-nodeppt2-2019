@@ -138,7 +138,10 @@ function side(
     if (currentLevel <= maxLevel) {
         getDirectories(join(baseDir, relativeDir))
             // 找到子目录中不是导航类型的
-            .filter(subDir => !(navPrefixArr.findIndex(item => subDir.startsWith(item)) > -1))
+            .filter(subDir => !(navPrefixArr.some(item => {
+                const pattern = new RegExp(`^${item}[\\d+|.|-|_]`)
+                return subDir.match(pattern) != null
+            })))
             .forEach(subDir => {
                 const children = side(
                     baseDir,
@@ -226,7 +229,11 @@ function parseSidebarParameters(dirname) {
  */
 function nav(rootDir, { navPrefixArr, stripNumbers, skipEmptyNavbar }, relativeDir = "/", currentNavLevel = 1) {
     const baseDir = join(rootDir, relativeDir);
-    const childrenDirs = getDirectories(baseDir).filter(subDir => navPrefixArr.findIndex(item => subDir.startsWith(item)) > -1);
+    // @fix findIndex --> some 防止目录名 eg. 'nav.01.xxxxxnav-ch'
+    const childrenDirs = getDirectories(baseDir).filter(subDir => navPrefixArr.some(item => {
+        const pattern = new RegExp(`^${item}[\\d+|.|-|_]`)
+        return subDir.match(pattern) != null
+    }));
 
     // console.log('-----childrenDirs')
     // console.log(childrenDirs)
