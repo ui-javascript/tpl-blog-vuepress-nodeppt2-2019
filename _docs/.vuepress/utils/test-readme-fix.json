@@ -1,0 +1,61 @@
+{
+  "nav": [
+    {
+      "text": "Javascript",
+      "items": [
+        {
+          "text": "Core Prototype",
+          "link": "/nav.04.javascript/nav.01.core-prototype/"
+        },
+        {
+          "text": "Web 3 Html 5",
+          "link": "/nav.04.javascript/nav.02.web3-html5/"
+        }
+      ]
+    },
+    {
+      "text": "Python",
+      "link": "/nav.05.python/"
+    }
+  ],
+  "sidebar": {
+    "/nav.04.javascript/nav.01.core-prototype/": [
+      "",
+      "01-[Note]作用域@nice",
+      {
+        "title": "Prototype",
+        "children": [
+          "prototype/",
+          "prototype/继承",
+          {
+            "title": "Demo",
+            "children": [
+              "prototype/_demo/"
+            ]
+          }
+        ]
+      }
+    ],
+    "/nav.04.javascript/nav.02.web3-html5/": [
+      "",
+      "Error处理"
+    ],
+    "/nav.05.python/": [
+      {
+        "title": "Core Science",
+        "children": [
+          "",
+          "01-core-science/",
+          "01-core-science/数据科学"
+        ]
+      },
+      {
+        "title": "Web Django",
+        "children": [
+          "02-web-django/",
+          "02-web-django/Django"
+        ]
+      }
+    ]
+  }
+}

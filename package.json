@@ -1,0 +1,36 @@
+{
+  "name": "natural-tpl-blog",
+  "version": "1.0.0",
+  "directories": {
+    "doc": "_docs"
+  },
+  "scripts": {
+    "install:tyarn": "tyarn install",
+    "remove": "rimraf node_modules",
+    "dev": "npm run gulp:copy && vuepress dev _docs",
+    "build": "npm run gulp:copy && vuepress build _docs",
+    "gulp:clean": "gulp clean",
+    "gulp:copy": "gulp copy",
+    "deploy:vuepress": "bash deploy.vuepress.sh"
+  },
+  "author": "luo0412",
+  "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.0.0-rc.1",
+    "@vuepress/plugin-medium-zoom": "^1.0.0-rc.1",
+    "del": "^5.1.0",
+    "glob": "^7.1.6",
+    "gulp": "^4.0.2",
+    "gulp-rename": "^1.4.0",
+    "vuepress": "^1.1.0",
+    "vuepress-plugin-code-copy": "^1.0.4",
+    "vuepress-plugin-permalink-pinyin": "^1.0.0"
+  },
+  "dependencies": {
+    "lodash.escaperegexp": "^4.1.2",
+    "lodash.sortby": "^4.7.0",
+    "lodash.startcase": "^4.4.0",
+    "markdown-it": "^10.0.0",
+    "markdown-it-meta": "^0.0.1",
+    "transliteration": "^2.1.7"
+  }
+}
