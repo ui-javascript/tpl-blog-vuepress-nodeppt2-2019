@@ -75,21 +75,21 @@ gulp.task('copy:markdown', function () {
     - 如何创建多个md 文件 https://github.com/ksky521/nodeppt/issues/262
 
 ```
-暂时将nodeppt降到1.2.5
-但是会对markdown的写法会有很多要求...
+暂时将nodeppt降到1.4.5 --> 会对写法会有很多要求, 和平时写的markdown有很大差别...
 
 希望nodeppt2可以早点支持多页面!!
 ```
 
-- [ ] 发布时间 timeline
-- [ ] 评论功能 vssue
-- [ ] 对涉及正则表达式/路径匹配的代码进行优化 --> 构建前clean文件失败??
-- [ ] 首页装饰
 - [ ] url的正确渲染..., 现在无法点击
+- [ ] 对涉及正则表达式/路径匹配的代码进行优化 --> 构建前clean文件失败??
 - [ ] 处理文件名里的tag + keyword
 
 # 次要改进
 
+- [ ] 加入部分 vuepress-theme-meteorlxy主题包的内容 
+- [ ] 发布时间 timeline
+- [ ] 首页装饰
+- [ ] 评论功能 vssue
 - [x] 文件可以处理 "[" 等特殊符号, 但目录路径却无法处理这些符号!! --> ??
 
 ```
@@ -101,7 +101,6 @@ eg. [8-2]xxxx
 ```
 
 - [ ] 放宽对README.md的格式要求
-- [ ] 加入部分 vuepress-theme-meteorlxy主题包的内容 
 - [ ] 英文对应的翻译文章
 
 # FAQ

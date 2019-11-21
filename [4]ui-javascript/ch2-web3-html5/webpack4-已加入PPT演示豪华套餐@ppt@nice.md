@@ -1,7 +1,5 @@
-# Error 处理
+# webpack4-PPT
 
-- hello
-- hi
 title: webpack4配置使用基础
 speaker: luo0412
 theme: dark
