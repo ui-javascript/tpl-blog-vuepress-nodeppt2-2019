@@ -2,7 +2,7 @@
 
 vuepress + nodeppt搭建博客
 
-这个模板，只有作死小能手才能用...
+这个模板，只有向我这样的`作死小能手`才敢用/(ㄒoㄒ)/~~
 
 # 使用
 
@@ -13,7 +13,8 @@ vuepress + nodeppt搭建博客
 2. README.md必须大写 --> @lazy
 3. navbar上可点击的目录(含navPrefixArr前缀)都要有README.md, 否则不计入navbar,
 普通目录可以没有README.md
-4. 除README.md以外的文章, 要包含includeArticleSuffix(eg.@nice)后缀才会加入文章列表
+4. 除README.md以外的文章, 要包含includeArticleSuffix(eg.@nice)后缀
+才会加入文章列表
 --> 把一些low的文章藏起来
 ```
 
