@@ -25,6 +25,7 @@
     "gulp-replace": "^1.0.0",
     "nodeppt": "1.4.5",
     "vuepress": "^1.1.0",
+    "vuepress-plugin-check-md": "^0.0.2",
     "vuepress-plugin-code-copy": "^1.0.4",
     "vuepress-plugin-permalink-pinyin": "^1.0.0"
   },
