@@ -2,6 +2,8 @@
 
 vuepress + nodeppt搭建博客
 
+这个模板，只有作死小能手才能用...
+
 # 使用
 
 - 结构: article -> topic -> chapter -> nav

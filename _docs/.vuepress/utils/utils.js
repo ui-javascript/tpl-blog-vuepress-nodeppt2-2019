@@ -162,7 +162,9 @@ function side(
                             // console.log('---------link')
                             // console.log(subDir)
                             // console.log(link)
-                            return subDir < (link.children ? (link.children[0] || "").split(sep)[0] : link)
+                            // @TODO 会报错, 一些目录没有写readme??
+                            // return subDir < (link.children ? (link.children[0] || "").split(sep)[0] : link)
+                            return subDir < (link.children ? "": link)
                         }
                     );
 
