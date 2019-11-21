@@ -15,6 +15,12 @@ gulp.task('clean:_docs', function (cb) {
     ], cb);
 });
 
+gulp.task('clean:_ppt', function (cb) {
+  return del([
+    '_ppt/**'
+  ], cb);
+});
+
 // 搬运静态资源
 gulp.task('copy:static', function () {
     return gulp.src([
@@ -23,18 +29,25 @@ gulp.task('copy:static', function () {
     .pipe(gulp.dest(`_docs/.vuepress/public/static`))
 })
 
+gulp.task('copy:ppt:static', function () {
+  return gulp.src([
+    `static/**/*.*`,
+  ]).pipe(gulp.dest(`_ppt/static`))
+})
+
 // 搬运Markdown
 const appendixFolder = [
-    ".vuepress", ".nodeppt", "_docs",
+    ".vuepress", ".nodeppt", "_docs", "_ppt",
     ".idea", ".git", "node_modules", ".vscode", "static", "public",
     // 附录
     'appendix', 'activity', 'book', 'code', 'dying', 'ext', 'planB', 'regret'
 ]
+
 gulp.task('copy:markdown', function () {
     return gulp.src([
-        `**/*{README,@nice}.md`,
+        `**/*{README,@nice}*.md`,
         // @TODO 好像不支持这种格式 {a,b}/**.md
-        ...appendixFolder.map(item => `!${item}/**/**md`)
+        ...appendixFolder.map(item => `!${item}/**/*.md`)
     ])
     .pipe(rename(function (path) {
         // @TODO 正则优化一波
@@ -44,6 +57,21 @@ gulp.task('copy:markdown', function () {
         }
     }))
     .pipe(gulp.dest(`_docs`))
+})
+
+
+gulp.task('copy:ppt:markdown', function () {
+  return gulp.src([
+    `**/*@ppt*.md`,
+    ...appendixFolder.map(item => `!${item}/**/*.md`)
+  ])
+  .pipe(rename(function (path) {
+      // 都移到组外层
+      path.dirname = ""
+      // 来个随机数
+      path.basename = path.basename + '-' + Math.random().toString().slice(2, 7)
+   }))
+  .pipe(gulp.dest(`_ppt`))
 })
 
 // vuepress打包文件路径替换
@@ -65,6 +93,10 @@ gulp.task('clean', gulp.series('clean:_docs', function (done) {
 
 gulp.task('copy', gulp.series('clean:_docs', gulp.parallel('copy:static', 'copy:markdown'), function (done) {
     done();
+}));
+
+gulp.task('copy:ppt', gulp.series('clean:_ppt', gulp.parallel('copy:ppt:static', 'copy:ppt:markdown'), function (done) {
+  done();
 }));
 
 

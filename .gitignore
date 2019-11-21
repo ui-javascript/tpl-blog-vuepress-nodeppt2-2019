@@ -20,6 +20,7 @@ yarn-error.log*
 /_docs/.vuepress/public
 /_docs/.vuepress/dist
 
-
-
-
+/_ppt/**/*.md
+/_ppt/static
+/_ppt/dist
+/dist/

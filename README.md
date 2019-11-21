@@ -2,7 +2,7 @@
 
 vuepress + nodeppt搭建博客
 
-这个模板，只有向我这样的`作死小能手`才敢用/(ㄒoㄒ)/~~
+只有像我这样的`作死小能手`才敢用/(ㄒoㄒ)/~~, 我太难了
 
 # 使用
 
@@ -14,8 +14,8 @@ vuepress + nodeppt搭建博客
 3. navbar上可点击的目录(含navPrefixArr前缀)都要有README.md, 否则不计入navbar,
 普通目录可以没有README.md
 4. 除README.md以外的文章, 要包含includeArticleSuffix(eg.@nice)后缀
-才会加入文章列表
---> 把一些low的文章藏起来
+才会加入文章列表 --> 把一些low的文章藏起来
+5. 想渲染成PPT的在文件名里加 @ppt
 ```
 
 - 发布
@@ -72,10 +72,20 @@ gulp.task('copy:markdown', function () {
 ```
 
 - [ ] 用nodeppt指定部分markdown, 渲染成ppt
+    - 如何创建多个md 文件 https://github.com/ksky521/nodeppt/issues/262
+
+```
+暂时将nodeppt降到1.2.5
+但是会对markdown的写法会有很多要求...
+
+希望nodeppt2可以早点支持多页面!!
+```
+
 - [ ] 发布时间 timeline
 - [ ] 评论功能 vssue
 - [ ] 对涉及正则表达式/路径匹配的代码进行优化 --> 构建前clean文件失败??
 - [ ] 首页装饰
+- [ ] url的正确渲染..., 现在无法点击
 - [ ] 处理文件名里的tag + keyword
 
 # 次要改进

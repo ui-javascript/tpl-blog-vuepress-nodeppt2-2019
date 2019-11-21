@@ -61,6 +61,7 @@ function getName(path, { navPrefixArr, stripNumbers } = {}) {
 
 
     navPrefixArr.forEach(item => {
+        // @FIXME 会把 chip --> ip
         // "nav.001.xyz" or "nav-001.xyz" or "nav_001.xyz" or "nav 001.xyz" -> "nav"
         const pattern = new RegExp(`^${escapeRegExp(item)}[.\-_ ]?`);
         name = name.replace(pattern, "");

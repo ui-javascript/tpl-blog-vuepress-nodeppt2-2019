@@ -11,7 +11,8 @@
     "build": "npm run gulp:copy && vuepress build _docs && gulp path:replace",
     "gulp:clean": "gulp clean",
     "gulp:copy": "gulp copy",
-    "deploy:vuepress": "bash deploy.vuepress.sh"
+    "dev:nodeppt": "gulp copy:ppt && cd _ppt && nodeppt start -w -p 8976",
+    "build:nodeppt": "gulp copy:ppt && nodeppt generate _ppt _ppt/dist -a"
   },
   "author": "luo0412",
   "devDependencies": {
@@ -22,6 +23,7 @@
     "gulp": "^4.0.2",
     "gulp-rename": "^1.4.0",
     "gulp-replace": "^1.0.0",
+    "nodeppt": "1.4.5",
     "vuepress": "^1.1.0",
     "vuepress-plugin-code-copy": "^1.0.4",
     "vuepress-plugin-permalink-pinyin": "^1.0.0"

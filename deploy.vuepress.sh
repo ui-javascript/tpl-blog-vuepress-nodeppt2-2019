@@ -3,7 +3,7 @@
 set -e
 
 # build
-npm run build
+npm run build:nodeppt
 
 # navigate into the build output directory
 cd _docs/.vuepress/dist
@@ -13,7 +13,7 @@ cd _docs/.vuepress/dist
 
 git init
 git add -A
-git commit -m '机械发布'
+git commit -m 'vuepress机械发布'
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
 git push -f git@github.com:ui-javascript/note.git master:gh-pages
