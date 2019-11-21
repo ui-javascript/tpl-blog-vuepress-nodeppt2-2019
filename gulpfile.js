@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const del = require('del');
 const rename = require('gulp-rename')
 
+const gulpReplace = require('gulp-replace')
 
 // 删除之前生成的dist目录
 gulp.task('clean:_docs', function (cb) {
@@ -44,6 +45,18 @@ gulp.task('copy:markdown', function () {
     }))
     .pipe(gulp.dest(`_docs`))
 })
+
+// vuepress打包文件路径替换
+const publicPath = 'note'
+gulp.task('path:replace', function() {
+    return gulp
+        .src([
+            '_docs/.vuepress/dist/**/*.{html,js}',
+        ])
+        // 理解一波 ??
+        .pipe(gulpReplace(/(?<!note\/)static\/images/g, 'note/static/images'))
+        .pipe(gulp.dest('_docs/.vuepress/dist'));
+});
 
 // 清理所有
 gulp.task('clean', gulp.series('clean:_docs', function (done) {

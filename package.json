@@ -8,7 +8,7 @@
     "install:tyarn": "tyarn install",
     "remove": "rimraf node_modules",
     "dev": "npm run gulp:copy && vuepress dev _docs",
-    "build": "npm run gulp:copy && vuepress build _docs",
+    "build": "npm run gulp:copy && vuepress build _docs && gulp path:replace",
     "gulp:clean": "gulp clean",
     "gulp:copy": "gulp copy",
     "deploy:vuepress": "bash deploy.vuepress.sh"
@@ -21,6 +21,7 @@
     "glob": "^7.1.6",
     "gulp": "^4.0.2",
     "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
     "vuepress": "^1.1.0",
     "vuepress-plugin-code-copy": "^1.0.4",
     "vuepress-plugin-permalink-pinyin": "^1.0.0"
