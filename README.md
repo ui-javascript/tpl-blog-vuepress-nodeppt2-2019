@@ -29,26 +29,49 @@ windows直接用点击 deploy.vuepress.sh
 - [x] 保证static绝对路径正常引用 --> 在github上直接阅读markdown也能正常加载图片路径
 
 ```
-暂时用gulp4简单搬运一些静态文件
-但这样的做文件一多就jj了
-
-目前, vuepress提供的这种引入方法真的接受无能...
+目前, vuepress提供的这种引入方法不适合...
 ![Image from alias](~@alias/image.png)
+
+暂时用gulp4简单搬运那些静态文件 --> 文件一多就jj了
+
+部署后还需要全局替换路径 --> 我太难了...
+gulp.task('path:replace', function() {
+    return gulp
+        .src([
+            '_docs/.vuepress/dist/**/*.{html,js}',
+        ])
+        // 理解一波 ??
+        .pipe(gulpReplace(/(?<!note\/)static\/images/g, 'note/static/images'))
+        .pipe(gulp.dest('_docs/.vuepress/dist'));
+});
 ```
 
-- [x] vuepress build不要打包所有markdown!!!
+- [x] vuepress build时不要打包文件夹下的所有markdown!!!
     - Ignore some markdown files in source directory 
     - https://github.com/vuejs/vuepress/issues/1558
 
 ```
 改为 在运行前将所有符合条件的markdown搬运到 _docs
+
+gulp.task('copy:markdown', function () {
+    return gulp.src([
+        `**/*{README,@nice}.md`,
+    ])
+    .pipe(rename(function (path) {
+        if (path.dirname.includes('[') && path.dirname.includes(']')) {
+            path.dirname = path.dirname.replace(/\[/, 'nav.').replace(/\]/, ".")
+        }
+    }))
+    .pipe(gulp.dest(`_docs`))
+})
+
 还是gulp大法好啊!!!
 ```
 
 - [ ] 用nodeppt指定部分markdown, 渲染成ppt
 - [ ] 发布时间 timeline
 - [ ] 评论功能 vssue
-- [ ] 对涉及正则表达式/路径匹配的代码进行优化
+- [ ] 对涉及正则表达式/路径匹配的代码进行优化 --> 构建前clean文件失败??
 - [ ] 首页装饰
 - [ ] 处理文件名里的tag + keyword
 
