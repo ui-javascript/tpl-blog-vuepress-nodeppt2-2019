@@ -40,7 +40,8 @@ const appendixFolder = [
     ".vuepress", ".nodeppt", "_docs", "_ppt",
     ".idea", ".git", "node_modules", ".vscode", "static", "public",
     // 附录
-    'appendix', 'activity', 'book', 'code', 'dying', 'ext', 'planB', 'regret'
+    // 'appendix',
+    'activity', 'book', 'code', 'dying', 'ext', 'planB', 'regret'
 ]
 
 gulp.task('copy:markdown', function () {

@@ -26,7 +26,7 @@ module.exports = {
     ],
     sidebar: barConfig.sidebar,
     docsDir: '/',
-    lastUpdated: '更新时间',
+    lastUpdated: '最近更新',
   },
   markdown: {
     lineNumbers: true,
@@ -44,6 +44,8 @@ module.exports = {
   plugins: [
     // 返回顶部-插件
     ['@vuepress/back-to-top', true],
+    // 最近修改-插件
+    // ['@vuepress/last-updated', true],
     // 图片缩放-插件
     ['@vuepress/medium-zoom', {
       selector: 'img',
@@ -52,6 +54,13 @@ module.exports = {
         margin: 16
       }
     }],
+    // ['@vuepress/pwa', {
+    //   serviceWorker: true,
+    //   updatePopup: {
+    //     message: "新的风暴已经出现",
+    //     buttonText: "盘他"
+    //   }
+    // }],
     // 代码复制-插件
     ['vuepress-plugin-code-copy', true],
     // 拼音导航-插件 -> 最终url的显示更改, 并不是真的改变了文件路径??
