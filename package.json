@@ -17,6 +17,7 @@
   "author": "luo0412",
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.0.0-rc.1",
+    "@vuepress/plugin-last-updated": "^1.2.0",
     "@vuepress/plugin-medium-zoom": "^1.0.0-rc.1",
     "del": "^5.1.0",
     "glob": "^7.1.6",
