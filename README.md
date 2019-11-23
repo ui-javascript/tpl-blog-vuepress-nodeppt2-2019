@@ -80,7 +80,16 @@ gulp.task('copy:markdown', function () {
 希望nodeppt2可以早点支持多页面!!
 ```
 
-- [ ] url的正确渲染..., 现在无法点击
+- [X] url的正确渲染..., 现在无法点击
+
+```
+// 替换链接
+.pipe(gulpReplace(/(?<!\()(https?:\/\/)([0-9a-z.]+)(:[0-9]+)?([/0-9a-z.]+)?(\?[0-9a-z&=]+)?(#[0-9-a-z]+)?/ig, function(match, prefix, content) {
+    // console.log(match, prefix, content)
+    return '['+ match +']('+ match +')';
+}))
+```
+
 - [ ] 对涉及正则表达式/路径匹配的代码进行优化 --> 构建前clean文件失败??
 - [ ] 处理文件名里的tag + keyword
 

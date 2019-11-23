@@ -50,6 +50,11 @@ gulp.task('copy:markdown', function () {
         // @TODO 好像不支持这种格式 {a,b}/**.md
         ...appendixFolder.map(item => `!${item}/**/*.md`)
     ])
+    // 替换链接
+    .pipe(gulpReplace(/(?<!\()(https?:\/\/)([0-9a-z.]+)(:[0-9]+)?([/0-9a-z.]+)?(\?[0-9a-z&=]+)?(#[0-9-a-z]+)?/ig, function(match, prefix, content) {
+        // console.log(match, prefix, content)
+        return '['+ match +']('+ match +')';
+    }))
     .pipe(rename(function (path) {
         // @TODO 正则优化一波
         // eg. [9-1]xxxx-yyyy
@@ -66,6 +71,11 @@ gulp.task('copy:ppt:markdown', function () {
     `**/*@ppt*.md`,
     ...appendixFolder.map(item => `!${item}/**/*.md`)
   ])
+  // 替换链接
+  .pipe(gulpReplace(/(?<!\()(https?:\/\/)([0-9a-z.]+)(:[0-9]+)?([/0-9a-z.]+)?(\?[0-9a-z&=]+)?(#[0-9-a-z]+)?/ig, function(match, prefix, content) {
+      // console.log(match, prefix, content)
+      return '['+ match +']('+ match +')';
+  }))
   .pipe(rename(function (path) {
       // 都移到组外层
       path.dirname = ""
