@@ -2,7 +2,9 @@
 
 vuepress + nodeppt搭建博客
 
-只有像我这样的`作死小能手`才敢用/(ㄒoㄒ)/~~, 我太难了
+如果不是`作死小能手`就不要看了, 我太难了/(ㄒoㄒ)/~~
+
+![效果图](/static/images/preview.jpg)
 
 # 使用
 
@@ -21,8 +23,8 @@ vuepress + nodeppt搭建博客
 - 发布
 
 ```
-安装过git bash
-windows直接用点击 deploy.vuepress.sh
+如果安装过git bash
+windows上直接点击 deploy.vuepress.sh
 ```
 
 # TODO
@@ -89,7 +91,11 @@ gulp.task('copy:markdown', function () {
     return '['+ match +']('+ match +')';
 }))
 
-// 可能还有一些细节的问题
+还有一些细节, 会读取失败...
+eg.
+https://juejin.im/entry/599bdfb8f265da24722fb77d#%E9%9F%B3%E9%A2%91
+
+碰到正则，我就是个弟弟...
 ```
 
 - [ ] 对涉及正则表达式/路径匹配的代码进行优化 --> 构建前clean文件失败??
@@ -133,7 +139,9 @@ vuepress build好像还是拿不到NODE_NEV?? --> cross-env
 
 # 参考
 
-- https://github.com/realpdai/tech-arch-doc-comments @nice
-- https://github.com/ozum/vuepress-bar
-- https://github.com/boboidream/note
+- 搭建过程
+    - https://github.com/realpdai/tech-arch-doc-comments @nice
+- 如何自动读取目录结构
+    - https://github.com/ozum/vuepress-bar
+    - https://github.com/boboidream/note
 
