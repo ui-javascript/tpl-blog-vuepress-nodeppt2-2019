@@ -11,6 +11,7 @@
     "build": "npm run gulp:copy && vuepress build _docs && gulp path:replace",
     "gulp:clean": "gulp clean",
     "gulp:copy": "gulp copy",
+    "gulp:copy:markdown": "gulp copy:markdown",
     "dev:nodeppt": "gulp copy:ppt && cd _ppt && nodeppt start -w -p 8976",
     "build:nodeppt": "gulp copy:ppt && nodeppt generate _ppt _ppt/dist -a"
   },

@@ -84,10 +84,12 @@ gulp.task('copy:markdown', function () {
 
 ```
 // 替换链接
-.pipe(gulpReplace(/(?<!\()(https?:\/\/)([0-9a-z.]+)(:[0-9]+)?([/0-9a-z.]+)?(\?[0-9a-z&=]+)?(#[0-9-a-z]+)?/ig, function(match, prefix, content) {
+.pipe(gulpReplace(/(?<!\[)((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)#?[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/ig, function(match, prefix, content) {
     // console.log(match, prefix, content)
     return '['+ match +']('+ match +')';
 }))
+
+// 可能还有一些细节的问题
 ```
 
 - [ ] 对涉及正则表达式/路径匹配的代码进行优化 --> 构建前clean文件失败??
