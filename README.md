@@ -97,7 +97,7 @@ gulp.task('copy:markdown', function () {
 
 ```
 // 替换链接
-.pipe(gulpReplace(/(?<!\[)((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)#?[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/ig, function(match, prefix, content) {
+.pipe(gulpReplace(/(?<!\[)((((ht|f)tps?:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)#?[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/ig, function(match, prefix, content) {
     // console.log(match, prefix, content)
     return '['+ match +']('+ match +')';
 }))
