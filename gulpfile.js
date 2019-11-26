@@ -50,10 +50,10 @@ gulp.task('copy:markdown', function () {
         // @TODO 好像不支持这种格式 {a,b}/**.md
         ...appendixFolder.map(item => `!${item}/**/*.md`)
     ])
-    // 替换链接
-    .pipe(gulpReplace(/(?<!\[)((((ht|f)tps?:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)#?[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/ig, function(match, prefix, content) {
+    // 替换链接 空格开头
+    .pipe(gulpReplace(/ ((((ht|f)tps?:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)#?[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/ig, function(match, prefix, content) {
         // console.log(match, prefix, content)
-        return '['+ match +']('+ match +')';
+        return ' ['+ match.trimLeft() +']('+ match.trimLeft() +')';
     }))
     .pipe(rename(function (path) {
         // @TODO 正则优化一波
@@ -71,8 +71,8 @@ gulp.task('copy:ppt:markdown', function () {
     `**/*@ppt*.md`,
     ...appendixFolder.map(item => `!${item}/**/*.md`)
   ])
-  // 替换链接
-  .pipe(gulpReplace(/(?<!\[)((((ht|f)tps?:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)#?[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/ig, function(match, prefix, content) {
+  // 替换链接 空格开头
+  .pipe(gulpReplace(/ ((((ht|f)tps?:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)#?[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/ig, function(match, prefix, content) {
       // console.log(match, prefix, content)
       return '['+ match +']('+ match +')';
   }))

@@ -2,8 +2,6 @@
 
 vuepress + nodeppt搭建博客
 
-如果不是`作死小能手`就不要看了, 我太难了/(ㄒoㄒ)/~~
-
 # 使用
 
 - 结构: article -> topic -> chapter -> nav
@@ -93,11 +91,11 @@ gulp.task('copy:markdown', function () {
 希望nodeppt2可以早点支持多页面!!
 ```
 
-- [X] url的正确渲染..., 现在无法点击
+- [ ] url的正确渲染..., 现在无法点击
 
 ```
-// 替换链接
-.pipe(gulpReplace(/(?<!\[)((((ht|f)tps?:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)#?[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/ig, function(match, prefix, content) {
+// 替换链接 空格开头
+.pipe(gulpReplace(/ ((((ht|f)tps?:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)#?[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/ig, function(match, prefix, content) {
     // console.log(match, prefix, content)
     return '['+ match +']('+ match +')';
 }))
